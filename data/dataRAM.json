@@ -1,0 +1,39 @@
+[
+    {
+        "Vengeance LPX": {
+            "type": "Memory Module",
+            "model": "Vengeance LPX",
+            "manufacturer_company": "Corsair",
+            "memory_type": "DDR4",
+            "memory_form_factor": "DIMM",
+            "memory_module_capacity": 16
+            },
+            
+            "Ripjaws V": {
+            "type": "Memory Module",
+            "model": "Ripjaws V",
+            "manufacturer_company": "G.Skill",
+            "memory_type": "DDR4",
+            "memory_form_factor": "DIMM",
+            "memory_module_capacity": 32
+            },
+            
+            "Trident Z RGB":{
+            "type": "Memory Module",
+            "model": "Trident Z RGB",
+            "manufacturer_company": "G.Skill",
+            "memory_type": "DDR4",
+            "memory_form_factor": "DIMM",
+            "memory_module_capacity": 64
+            },
+            
+            "HyperX Fury":{
+            "type": "Memory Module",
+            "model": "HyperX Fury",
+            "manufacturer_company": "Kingston",
+            "memory_type": "DDR4",
+            "memory_form_factor": "DIMM",
+            "memory_module_capacity": 8
+            }
+    }
+]
