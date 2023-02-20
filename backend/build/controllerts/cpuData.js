@@ -40,12 +40,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getCpu = void 0;
-var dataCPU_json_1 = __importDefault(require("../data/dataCPU.json"));
-//import CPU from '../dataBase/dbShema/CPU';
+var M2_SSD_1 = __importDefault(require("../dataBase/dbShema/M2_SSD"));
 var getCpu = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var m2_ssd;
     return __generator(this, function (_a) {
-        console.log(dataCPU_json_1.default);
-        res.send();
+        m2_ssd = new M2_SSD_1.default({
+            Type: 'Solid State Drive',
+            Model: 'Samsung 970 PRO',
+            Manufacturer_company: 'Samsung',
+            Volume: '1 TB',
+            Key_M2_connector: 'M-Key',
+            NVMe: true,
+        });
+        m2_ssd.save();
+        res.send('OK');
         return [2 /*return*/];
     });
 }); };

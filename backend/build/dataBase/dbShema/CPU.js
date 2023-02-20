@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose_1 = require("mongoose");
 var CPU = new mongoose_1.Schema({
-    model: String,
+    model: { type: String, unique: true },
     manufacturer_company: String,
     socket: String,
     total_number_of_cores: String,
@@ -16,4 +16,4 @@ var CPU = new mongoose_1.Schema({
     heat_dissipation_TDP: String,
     maximum_CPU_temperature: String,
 });
-module.exports = (0, mongoose_1.model)('CPU', CPU);
+exports.default = (0, mongoose_1.model)('CPU', CPU);

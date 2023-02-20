@@ -1,13 +1,15 @@
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import path from 'path';
-dotenv.config({path: path.join(__dirname, '../.env')});
 const mongoURL = process.env.MONGODB_URI;
-mongoConnect().catch(err => console.log(err));
+try {
+  mongoConnect();
+  console.log('connected DB ');
+} catch (error) {
+  console.log(error);
+}
 export async function mongoConnect() {
+  console.log('mongoURL', mongoURL);
   if (mongoURL) {
-    console.log(mongoURL);
-
-    mongoose.connect(mongoURL);
+    await mongoose.connect(mongoURL);
   }
 }
+// catch(err => console.log(err));

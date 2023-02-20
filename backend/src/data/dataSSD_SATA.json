@@ -4,7 +4,7 @@
     {
         "Type": "Solid State Drive",
         "Model": "Samsung 860 EVO",
-        "Manufacturer company": "Samsung",
+      "Manufacturer_company": "Samsung",
         "volume": "1 TB",
         "Interface": "SATA III"
         },
@@ -12,7 +12,7 @@
          {
         "Type": "Solid State Drive",
         "Model": "Crucial BX500",
-        "Manufacturer company": "Crucial",
+      "Manufacturer_company": "Crucial",
         "volume": "480 GB",
         "Interface": "SATA III"
         },
@@ -20,7 +20,7 @@
         {
         "Type": "Solid State Drive",
         "Model": "SanDisk SSD PLUS",
-        "Manufacturer company": "SanDisk",
+      "Manufacturer_company": "SanDisk",
         "volume": "1 TB",
         "Interface": "SATA III"
         },
@@ -28,7 +28,7 @@
        {
         "Type": "Solid State Drive",
         "Model": "Kingston A400",
-        "Manufacturer company": "Kingston",
+      "Manufacturer_company": "Kingston",
         "volume": "480 GB",
         "Interface": "SATA III"
         }

@@ -41,20 +41,29 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.mongoConnect = void 0;
 var mongoose_1 = __importDefault(require("mongoose"));
-var dotenv_1 = __importDefault(require("dotenv"));
-var path_1 = __importDefault(require("path"));
-dotenv_1.default.config({ path: path_1.default.join(__dirname, '../.env') });
 var mongoURL = process.env.MONGODB_URI;
-mongoConnect().catch(function (err) { return console.log(err); });
+try {
+    mongoConnect();
+    console.log('connected DB ');
+}
+catch (error) {
+    console.log(error);
+}
 function mongoConnect() {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            if (mongoURL) {
-                console.log(mongoURL);
-                mongoose_1.default.connect(mongoURL);
+            switch (_a.label) {
+                case 0:
+                    console.log('mongoURL', mongoURL);
+                    if (!mongoURL) return [3 /*break*/, 2];
+                    return [4 /*yield*/, mongoose_1.default.connect(mongoURL)];
+                case 1:
+                    _a.sent();
+                    _a.label = 2;
+                case 2: return [2 /*return*/];
             }
-            return [2 /*return*/];
         });
     });
 }
 exports.mongoConnect = mongoConnect;
+// catch(err => console.log(err));

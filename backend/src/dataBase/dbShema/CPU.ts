@@ -1,7 +1,7 @@
 import {Schema, model} from 'mongoose';
 
 const CPU = new Schema({
-  model: String,
+  model: {type: String, unique: true},
   manufacturer_company: String,
   socket: String,
   total_number_of_cores: String,
@@ -15,4 +15,4 @@ const CPU = new Schema({
   heat_dissipation_TDP: String,
   maximum_CPU_temperature: String,
 });
-module.exports = model('CPU', CPU);
+export default model('CPU', CPU);
