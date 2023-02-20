@@ -40,10 +40,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getCpu = void 0;
-var dataCPU_json_1 = __importDefault(require("../../data/dataCPU.json"));
-var getCpu = function () { return __awaiter(void 0, void 0, void 0, function () {
+var dataCPU_json_1 = __importDefault(require("../data/dataCPU.json"));
+//import CPU from '../dataBase/dbShema/CPU';
+var getCpu = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         console.log(dataCPU_json_1.default);
+        res.send();
         return [2 /*return*/];
     });
 }); };

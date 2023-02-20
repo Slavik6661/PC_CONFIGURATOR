@@ -1,16 +1,16 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
-import {router} from './routs/routs';
+import router from './routs/routs';
 import {mongoConnect} from './dataBase/connection';
 const app = express();
 dotenv.config({path: path.join(__dirname, '../.env')});
 const PORT = process.env.PORT;
 mongoConnect();
-app.use(router);
-app.get('/', (req, res) => {
-  res.send('hello world!!');
-});
+app.use('/', router);
+// app.get('/', (req, res) => {
+//   res.send('hello world!!');
+// });
 
 app.listen(PORT, () => {
   console.log(`${PORT} Server is running....`);
