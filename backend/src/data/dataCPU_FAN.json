@@ -1,0 +1,51 @@
+[
+    
+         {
+            "type": "CPU Cooler",
+            "model": "NH-D15",
+            "manufacturer_company": "Noctua",
+            "socket": ["Intel LGA1200, LGA1150, LGA1151, LGA1155, LGA1156, LGA2011-0 & LGA2011-3 (Square ILM), LGA2066"],
+            "power_dissipation": "165 W",
+            "fan_connector": ["4-pin PWM"],
+            "height": 165,
+            "width": 150,
+            "length": 161
+            },
+            
+             {
+            "type": "CPU Cooler",
+            "model": "Hyper 212 RGB Black Edition",
+            "manufacturer_company": "Cooler Master",
+            "socket": ["Intel LGA 2066 / 2011-v3 / 2011 / 1366 / 1151 / 1150 / 1155 / 1156 / 775", "AMD AM4 / AM3+ / AM3 / AM2+ / AM2 / FM2+ / FM2 / FM1"],
+            "power_dissipation": "150 W",
+            "fan_connector": ["4-pin PWM"],
+            "height": 159,
+            "width": 120,
+            "length": 79.6
+            },
+            
+           {
+            "type": "CPU Cooler",
+            "model": "Dark Rock Pro 4",
+            "manufacturer_company": "be quiet!",
+            "socket": ["Intel: 1150 / 1151 / 1155 / 1156 / 1366 / 2011(-3) Square ILM / 2066", "AMD: AM2(+) / AM3(+) / AM4 / FM1 / FM2(+)"],
+            "power_dissipation": "250 W",
+            "fan_connector": ["4-pin PWM"],
+            "height": 162.8,
+            "width": 136,
+            "length": 145.7
+            },
+            
+            {
+            "type": "CPU Cooler",
+            "model": "Wraith Prism",
+            "manufacturer_company": "AMD",
+            "socket": ["AMD AM4, TR4"],
+            "power_dissipation": "105 W",
+            "fan_connector": ["4-pin RGB LED"],
+            "height": 90,
+            "width": 90,
+            "length": 115
+            }
+    
+]
