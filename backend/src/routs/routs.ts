@@ -20,6 +20,7 @@ router.get('/power', getPowerIN);
 router.get('/hdd', getHdd);
 router.get('/ssdSata', getSsdSata);
 router.get('/ssdM2', getM2Ssd);
+router.get('/mainPage', (req,res) => {});
 
 //router.get('/cpu', (req, res) => {});
 export default router;
