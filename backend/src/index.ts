@@ -13,6 +13,7 @@ mongoConnect();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../../frontend/dist')));
+app.use(express.static(path.join(__dirname, '../../frontend/src/icons')));
 
 app.use('/', router);
 

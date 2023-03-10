@@ -1,3 +1,45 @@
+body {
+    display: flex; 
+    justify-content: center; 
+    height: 100vh; 
+}
+
+.content{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 900px;
+    height: 100px;
+    display: flex;
+    border-radius: 5px;
+    background-color: #E0DDE6;
+}
+
+.nameSection{
+    padding-top: 40px;
+    margin-top: 0px;
+    margin-bottom: -60px;
+    margin-left: 20px;
+}
+
+.btn-addElement{
+    margin-top: 30px;
+    margin-left: 409px;
+    width: 116px;
+    height: 45px;
+}
+
+.icon-detail img{
+    margin-top: 26px;
+    margin-left: 20px;
+    width: 50px;
+    height: 50px;
+   
+}
+
+.section{
+    width: 240px;
+}
+
 .inc{
     width: 50px;
     height: 50px;
