@@ -1,4 +1,5 @@
 import axios from "axios";
+
 export async function getCpu() {
   axios
     .get("http://localhost:5000/cpu")

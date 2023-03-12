@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import "./style/counter.css";
+import React, { useEffect ,useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { increment, decrement } from "./store/toolkitSlice";
 import { getCpu } from "./api/dataPc";
 import PCcomponent from "./components/pcComponent.jsx";
+import "./style/counter.css";
 const App = () => {
   const dispatch = useDispatch();
   let count = useSelector((state) => state.toolkitS.count);
