@@ -1,6 +1,7 @@
 body {
     display: flex; 
     justify-content: center; 
+    background-color: #f6f6f6;
     height: 100vh; 
 }
 
@@ -11,7 +12,12 @@ body {
     height: 100px;
     display: flex;
     border-radius: 5px;
-    background-color: #E0DDE6;
+    box-shadow: 0px 0px 4px 1px #aca2a2;
+    background-color: #ffffff;
+}
+
+.content:hover {
+    box-shadow: 7px 8px 18px 11px #aca2a2;
 }
 
 .nameSection{
@@ -26,13 +32,82 @@ body {
     margin-left: 409px;
     width: 116px;
     height: 45px;
+    border: 1px;
+    border-style:solid;
+    border-radius:5px;
+    background-color:#ffffff;
+}
+
+.btn-addElement:hover{
+    background-color: #ffffff;
+    border-color: #06ea21;
+    color: #4dff00;
 }
 
 .icon-detail img{
     margin-top: 26px;
     margin-left: 20px;
     width: 50px;
-    height: 50px;
+    height: 50px;  
+}
+
+.info-content{
+    height: 100px;
+    display: flex;
+}
+
+.details{
+    margin-top: 114px;
+    margin-left: -700px;
+    width: 650px;
+    height: 644px;
+    display: grid;
+    justify-content: center;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.details-list{
+    list-style-type: none;
+}
+
+.element-details{
+    margin-bottom: 20px;
+    border-radius: 5px;
+    height: auto;
+    width: 550px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 6px 1px #aca2a2;
+    background-color: #ffffff;
+ 
+}
+
+.element-text{
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 0px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin-left: 9px;
+    display: flex;
+}
+
+.list-info{
+    display: flex;
+    justify-content: space-around;
+}
+
+.check-box{
+    margin-left: -35px;
+    margin-top: 5px;
+    margin-right: 10px;
+    width: 23px;
+    height: 23px;
+}
+
+.element-details:hover{
+    box-shadow:0px 0px 9px 5px #aca2a2;
    
 }
 
@@ -40,19 +115,7 @@ body {
     width: 240px;
 }
 
-.inc{
-    width: 50px;
-    height: 50px;
+.main-content{
+    display: flex;
 }
 
-.dec{
-    width: 50px;
-    height: 50px; 
-}
-
-.out-count{
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    text-align: center;
-}

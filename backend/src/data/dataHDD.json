@@ -2,34 +2,34 @@
     
         {
             "Type": "Hard Disk Drive",
-            "Model": "Seagate Barracuda",
-            "Manufacturer_company": "Seagate",
-            "Volume": "2 TB",
-            "Interface": "SATA III"
+            "model": "Seagate Barracuda",
+            "manufacturer_company": "Seagate",
+            "volume": "2 TB",
+            "interface": "SATA III"
             },
             
            {
             "Type": "Hard Disk Drive",
-            "Model": "Western Digital Black",
-            "Manufacturer_company": "Western Digital",
-            "Volume": "4 TB",
-            "Interface": "SATA III"
+            "model": "Western Digital Black",
+            "manufacturer_company": "Western Digital",
+            "volume": "4 TB",
+            "interface": "SATA III"
             },
             
            {
             "Type": "Hard Disk Drive",
-            "Model": "Toshiba X300",
-            "Manufacturer_company": "Toshiba",
-            "Volume": "8 TB",
-            "Interface": "SATA III"
+            "model": "Toshiba X300",
+            "manufacturer_company": "Toshiba",
+            "volume": "8 TB",
+            "interface": "SATA III"
             },
             
            {
             "Type": "Hard Disk Drive",
-            "Model": "Seagate IronWolf",
-            "Manufacturer_company": "Seagate",
-            "Volume": "12 TB",
-            "Interface": "SATA III"
+            "model": "Seagate IronWolf",
+            "manufacturer_company": "Seagate",
+            "volume": "12 TB",
+            "interface": "SATA III"
             }
     
 ]

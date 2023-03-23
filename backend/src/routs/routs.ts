@@ -16,11 +16,12 @@ router.get('/mb', getMotherboards);
 router.get('/frame', getFrame);
 router.get('/gpu', getGpu);
 router.get('/ram', getRam);
+router.get('/fan', getCpuFan);
 router.get('/power', getPowerIN);
 router.get('/hdd', getHdd);
 router.get('/ssdSata', getSsdSata);
 router.get('/ssdM2', getM2Ssd);
-router.get('/mainPage', (req,res) => {});
+router.get('/mainPage', (req, res) => {});
 
 //router.get('/cpu', (req, res) => {});
 export default router;

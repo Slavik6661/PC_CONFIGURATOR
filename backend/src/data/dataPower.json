@@ -2,31 +2,31 @@
     
        {
             "Type": "Power Supply Unit",
-            "Model": "RM850x",
-            "Manufacturer_company": "Corsair",
+            "model": "RM850x",
+            "manufacturer_company": "Corsair",
             "Power_nominal": "850 W",
             "Form_Factor": "ATX"
         },
             
        {
             "Type": "Power Supply Unit",
-            "Model": "EVGA SuperNOVA 1000 G5",
-            "Manufacturer_company": "EVGA",
+            "model": "EVGA SuperNOVA 1000 G5",
+            "manufacturer_company": "EVGA",
             "Power_nominal": "1000 W",
             "Form_Factor": "ATX"
             },
         {
             "Type": "Power Supply Unit",
-            "Model": "Seasonic PRIME TX-750",
-            "Manufacturer_company": "Seasonic",
+            "model": "Seasonic PRIME TX-750",
+            "manufacturer_company": "Seasonic",
             "Power_nominal": "750 W",
             "Form_Factor": "ATX"
             },
                 
         {
             "Type": "Power Supply Unit",
-            "Model": "ROG Thor 1200W",
-            "Manufacturer_company": "Asus",
+            "model": "ROG Thor 1200W",
+            "manufacturer_company": "Asus",
             "Power_nominal": "1200 W",
             "Form_Factor": "ATX"
             }

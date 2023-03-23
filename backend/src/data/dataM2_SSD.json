@@ -2,36 +2,36 @@
     
         {
             "Type": "Solid State Drive",
-            "Model": "Samsung 970 PRO",
-           "Manufacturer_company": "Samsung",
-            "Volume": "1 TB",
+            "model": "Samsung 970 PRO",
+           "manufacturer_company": "Samsung",
+            "volume": "1 TB",
            "Key_M2_connector": "M-Key",
             "NVMe": true
             },
             
             {
             "Type": "Solid State Drive",
-            "Model": "Western Digital Black SN850",
-           "Manufacturer_company": "Western Digital",
-            "Volume": "2 TB",
+            "model": "Western Digital Black SN850",
+           "manufacturer_company": "Western Digital",
+            "volume": "2 TB",
            "Key_M2_connector": "M-Key",
             "NVMe": true
             },
             
            {
             "Type": "Solid State Drive",
-            "Model": "Corsair MP600",
-           "Manufacturer_company": "Corsair",
-            "Volume": "1 TB",
+            "model": "Corsair MP600",
+           "manufacturer_company": "Corsair",
+            "volume": "1 TB",
            "Key_M2_connector": "M-Key",
             "NVMe": true
             },
             
             {
             "Type": "Solid State Drive",
-            "Model": "Crucial P5 Plus",
-           "Manufacturer_company": "Crucial",
-            "Volume": "2 TB",
+            "model": "Crucial P5 Plus",
+           "manufacturer_company": "Crucial",
+            "volume": "2 TB",
            "Key_M2_connector": "M-Key",
             "NVMe": true
             }

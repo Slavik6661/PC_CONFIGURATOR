@@ -1,7 +1,7 @@
 import path from 'path';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
-
+import {test} from './pars';
 dotenv.config({path: path.join(__dirname, '../.env')});
 
 import express from 'express';
@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, '../../frontend/dist')));
 app.use(express.static(path.join(__dirname, '../../frontend/src/icons')));
 
 app.use('/', router);
-
+test();
 app.listen(PORT, () => {
   console.log(`${PORT} Server is running....`);
 });
