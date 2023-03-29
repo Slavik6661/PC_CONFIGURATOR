@@ -116,6 +116,8 @@ body {
 }
 
 .main-content{
+    margin-left: 240px;
     display: flex;
+    justify-content: space-around;
 }
 

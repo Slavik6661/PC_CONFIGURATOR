@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
+import { listSelectedDetails } from "../store/toolkitSlice";
+import cpuData from "../../dist/dataPars/cpu.json";
+import motherBord from "../../dist/dataPars/motherBord.json";
+
 import {
   getCpu,
   getCpuFan,
@@ -13,11 +16,18 @@ import {
   getSsdSata,
   getSsdM2,
 } from "../api/dataPc";
+let listDetailsObj = {};
+let detailsArray = [];
 const PCListDetails = (props) => {
+  const dispatch = useDispatch();
+  const [dataDetails, setDataDetails] = useState([]);
+  const [checkedItems, setCheckedItems] = useState([]);
+  let selectDetails = useSelector((state) => state.toolkitS.selectedDetails);
   let selectedCategor = props.categoryDetails;
+
   let loadDataDetails = {
-    cpu: { isLoad: getCpu(), isSelected: false },
-    motherboard: { isLoad: getMb() },
+    cpu: { isLoad: getCpu(), dataLoad: cpuData, isSelected: false },
+    motherboard: { isLoad: getMb(), dataLoad: motherBord },
     casePC: { isLoad: getFrame() },
     gpu: { isLoad: getGpu() },
     fan: { isLoad: getCpuFan() },
@@ -28,30 +38,31 @@ const PCListDetails = (props) => {
     power: { isLoad: getPower() },
   };
   let listDetails = "";
-  const getHtmlDetails = async (detailsName) => {
-    const config = {
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-    };
-    const res = await fetch(
-      "https://cors-anywhere.herokuapp.com/https://www.citilink.ru/search/?text=%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80+amd",
-      config
-    )
-      // "https://cors-anywhere.herokuapp.com/https://www.citilink.ru/search/?text=%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80+amd"
-      .then((res) => {
-        console.log(res.data);
-      })
 
-      .catch((error) => {
-        console.error(error);
-      });
-  };
+  // const getHtmlDetails = async (detailsName) => {
+  //   const config = {
+  //     headers: {
+  //       "Content-Type": "application/x-www-form-urlencoded",
+  //     },
+  //   };
+  //   const res = await fetch(
+  //     "https://cors-anywhere.herokuapp.com/https://www.citilink.ru/search/?text=%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80+amd",
+  //     config
+  //   )
+  //     // "https://cors-anywhere.herokuapp.com/https://www.citilink.ru/search/?text=%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80+amd"
+  //     .then((res) => {
+  //       console.log(res.data);
+  //     })
+
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // };
+
   const componentOutputTemplate = (selectedCategor, element) => {
     switch (selectedCategor) {
       case "cpu":
-        listDetails = `${
-          (element.manufacturer_company,
+        listDetails = [
           element.model +
             " " +
             element.socket +
@@ -65,25 +76,23 @@ const PCListDetails = (props) => {
             "x" +
             element.memory_type +
             " - " +
-            element.maximum_RAM_frequency)
-        }`;
+            element.maximum_RAM_frequency,
+        ].join(" ");
         break;
       case "motherboard":
-        listDetails = `${
-          element.manufacturer_company +
-          " " +
+        listDetails = [
           element.model +
-          " " +
-          element.socket +
-          " " +
-          element.number_of_memory_slots +
-          " x " +
-          element.supported_memory_type +
-          " " +
-          element.chipset +
-          " " +
-          element.form_factor
-        }`;
+            " " +
+            element.socket +
+            " " +
+            element.number_of_memory_slots +
+            " x " +
+            element.supported_memory_type +
+            " " +
+            element.chipset +
+            " " +
+            element.form_factor,
+        ].join(" ");
         break;
       case "casePC":
         listDetails = [
@@ -193,7 +202,7 @@ const PCListDetails = (props) => {
         console.log(error);
     }
   };
-  const [dataDetails, setDataDetails] = useState([]);
+
   const getData = async () => {
     Object.entries(loadDataDetails).forEach(async (element) => {
       console.log(element);
@@ -205,9 +214,77 @@ const PCListDetails = (props) => {
       }
     });
   };
+  const creatingListWithSelectedComponents = (detail, category) => {
+    let objKeys = [];
+    if (Object.keys(listDetailsObj).length !== 0) {
+      Object.keys(listDetailsObj).forEach((element) => {
+        objKeys.push(element);
+      });
+
+      if (!objKeys.includes(category)) {
+        listDetailsObj[category] = [detail];
+      } else {
+        listDetailsObj[category] = [...listDetailsObj[category], detail];
+      }
+    } else {
+      detailsArray.push(detail);
+      listDetailsObj[category] = detailsArray;
+    }
+  };
+  const removeComponentsFromTheList = (targetId, category) => {
+    listDetailsObj[category] = listDetailsObj[category].filter((element) => {
+      return element.id !== targetId;
+    });
+  };
+
+  const findComponents = (detailsName, category, targetId) => {
+    let dataDetails = loadDataDetails[category].dataLoad;
+
+    if (detailsName) {
+      let result = dataDetails.filter((detail, index) => {
+        if (detail.name.includes(detailsName)) {
+          console.log(detailsName);
+          if (Object.keys(dataDetails[index]).includes("id")) {
+            creatingListWithSelectedComponents(detail, category);
+          } else {
+            dataDetails[index]["id"] = targetId;
+            console.log(dataDetails[index]);
+            creatingListWithSelectedComponents(detail, category);
+          }
+
+          // return (listDetailsObj[category] = detail);
+        }
+      });
+      return result;
+    }
+  };
+
   useEffect(() => {
     getData();
   }, []);
+
+  const handleClick = (elementModel, event) => {
+    const target = event.target;
+    const targetId = target.id;
+    const category = selectedCategor;
+
+    let detailsName = [" " + elementModel].join(" ");
+
+    if (target.checked) {
+      setCheckedItems([...checkedItems, targetId]);
+      findComponents(detailsName, category, targetId);
+    } else {
+      setCheckedItems(checkedItems.filter((item) => item !== targetId));
+      removeComponentsFromTheList(targetId, category);
+    }
+    console.log("f", listDetailsObj);
+
+    let newListDetailsObj = { ...listDetailsObj };
+    console.log(newListDetailsObj);
+    dispatch(listSelectedDetails(newListDetailsObj));
+    console.log(selectDetails);
+    // console.log(result);
+  };
 
   return (
     <div
@@ -216,26 +293,22 @@ const PCListDetails = (props) => {
       className="details"
     >
       <ul className="details-list">
-        {dataDetails.map((element) => {
+        {dataDetails.map((element, id) => {
           componentOutputTemplate(selectedCategor, element);
 
           return (
-            <li key={element.id}>
-              <div
-                className="element-details"
-                onClick={() => {
-                  getHtmlDetails();
-                  console.log(element.manufacturer_company, element.model);
-                }}
-              >
+            <li id={id} key={id}>
+              <div className="element-details">
                 <input
                   className="check-box"
                   type="checkbox"
-                  id={"scales" + element.model}
-                  name={"scales" + element.model}
+                  id={selectedCategor + "-" + id}
+                  name={selectedCategor + "-" + id}
+                  checked={checkedItems.includes(selectedCategor + "-" + id)}
+                  onClick={() => handleClick(element.model, event)}
                 />
 
-                <label for={"scales" + element.model}>
+                <label for={selectedCategor + "-" + id}>
                   <span className="element-text">{listDetails}</span>
                 </label>
               </div>

@@ -23,8 +23,6 @@ const PCComponent = () => {
   let [nameCategory, setNameCategory] = useState("");
   let [showDetails, setShowDetails] = useState(false);
   let [expandedDiv, setIdDiv] = useState(pcElements);
-  let selectedCategor = useSelector((state) => state.toolkitS.selectedCategory);
-  console.log(selectedCategor);
 
   const scrollToContent = (elementScroll) => {
     console.log(elementScroll);
@@ -61,8 +59,7 @@ const PCComponent = () => {
                 className="btn-addElement"
                 onClick={() => {
                   setShowDetails(!showDetails);
-                  element.isShow = !element.isShow;
-                  dispatch(selectedCategory(element.name));
+                  element.isShow = !element.isShow;      
                   let elementScroll = "details" + "-" + element.name;
                   setTimeout(() => {
                     scrollToContent(elementScroll);

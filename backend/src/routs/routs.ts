@@ -1,5 +1,5 @@
 import express from 'express';
-import {getCpu} from '../controllerts/cpuData';
+import {getCpu, parsDataCpu} from '../controllerts/cpuData';
 import {getCpuFan} from '../controllerts/cpuFanData';
 import {getFrame} from '../controllerts/frameData';
 import {getGpu} from '../controllerts/gpuData';
@@ -23,5 +23,6 @@ router.get('/ssdSata', getSsdSata);
 router.get('/ssdM2', getM2Ssd);
 router.get('/mainPage', (req, res) => {});
 
-//router.get('/cpu', (req, res) => {});
+router.get('parsDataCpu', parsDataCpu);
+
 export default router;

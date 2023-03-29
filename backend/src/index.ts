@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, '../../frontend/dist')));
 app.use(express.static(path.join(__dirname, '../../frontend/src/icons')));
 
 app.use('/', router);
-test();
+//test();
 app.listen(PORT, () => {
   console.log(`${PORT} Server is running....`);
 });

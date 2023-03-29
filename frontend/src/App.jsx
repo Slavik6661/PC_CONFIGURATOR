@@ -4,6 +4,7 @@ import { increment, decrement } from "./store/toolkitSlice";
 import { getCpu } from "./api/dataPc";
 import PCcomponent from "./components/pcComponent.jsx";
 import MenuNavigation from "./components/menuNavigation.jsx";
+import FindDetail from "./components/findDetails.jsx";
 import "./style/counter.css";
 import "./style/menuNavigation.css";
 
@@ -21,6 +22,9 @@ const App = () => {
         </div>
         <div>
           <PCcomponent />
+        </div>
+        <div>
+          <FindDetail />
         </div>
       </div>
     </>
