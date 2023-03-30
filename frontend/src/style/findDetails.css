@@ -51,3 +51,23 @@
 .find-section{
     width: 165px;
 }
+
+.find-details{
+    margin-top: 114px;
+    margin-left: -650px;
+    width: 650px;
+    height: 644px;
+    display: grid;
+    justify-content: center;
+    overflow: scroll;
+}
+.findList-element-text{
+    display: flex;
+    justify-content: space-around;
+    width: 550px;
+    margin-left: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}

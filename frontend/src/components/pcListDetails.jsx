@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { listSelectedDetails } from "../store/toolkitSlice";
+import { listSelectedDetails, selectedCategory } from "../store/toolkitSlice";
 import cpuData from "../../dist/dataPars/cpu.json";
 import motherBord from "../../dist/dataPars/motherBord.json";
 
@@ -16,13 +16,14 @@ import {
   getSsdSata,
   getSsdM2,
 } from "../api/dataPc";
+
 let listDetailsObj = {};
 let detailsArray = [];
 const PCListDetails = (props) => {
   const dispatch = useDispatch();
   const [dataDetails, setDataDetails] = useState([]);
   const [checkedItems, setCheckedItems] = useState([]);
-  let selectDetails = useSelector((state) => state.toolkitS.selectedDetails);
+
   let selectedCategor = props.categoryDetails;
 
   let loadDataDetails = {
@@ -214,6 +215,7 @@ const PCListDetails = (props) => {
       }
     });
   };
+
   const creatingListWithSelectedComponents = (detail, category) => {
     let objKeys = [];
     if (Object.keys(listDetailsObj).length !== 0) {
@@ -248,14 +250,10 @@ const PCListDetails = (props) => {
             creatingListWithSelectedComponents(detail, category);
           } else {
             dataDetails[index]["id"] = targetId;
-            console.log(dataDetails[index]);
             creatingListWithSelectedComponents(detail, category);
           }
-
-          // return (listDetailsObj[category] = detail);
         }
       });
-      return result;
     }
   };
 
@@ -267,7 +265,6 @@ const PCListDetails = (props) => {
     const target = event.target;
     const targetId = target.id;
     const category = selectedCategor;
-
     let detailsName = [" " + elementModel].join(" ");
 
     if (target.checked) {
@@ -277,13 +274,11 @@ const PCListDetails = (props) => {
       setCheckedItems(checkedItems.filter((item) => item !== targetId));
       removeComponentsFromTheList(targetId, category);
     }
-    console.log("f", listDetailsObj);
 
     let newListDetailsObj = { ...listDetailsObj };
     console.log(newListDetailsObj);
     dispatch(listSelectedDetails(newListDetailsObj));
-    console.log(selectDetails);
-    // console.log(result);
+    dispatch(selectedCategory(category));
   };
 
   return (

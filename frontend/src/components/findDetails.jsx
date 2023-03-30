@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectedDetails } from "../store/toolkitSlice";
-import PCComponent from "./pcComponent.jsx";
+import ListFindDetails from "./listFindDetails.jsx";
 import { scroller } from "react-scroll";
 import "../style/findDetails.css";
 const FindDetail = () => {
   let pcElements = [
-    { name: "cpu", translate: "Процессор", isShow: false },
-    { name: "motherboard", translate: "Материнская плата", isShow: false },
+    { name: "cpu", translate: "Процессор", findDetail: 0, isShow: false },
+    {
+      name: "motherboard",
+      translate: "Материнская плата",
+      findDetail: 0,
+      isShow: false,
+    },
     { name: "casePC", translate: "Корпус", isShow: false },
     { name: "gpu", translate: "Видеокарта", isShow: false },
     { name: "fan", translate: "Охлаждение процессора", isShow: false },
@@ -25,11 +29,10 @@ const FindDetail = () => {
     (state) => state.toolkitS.listSelectedDetails
   );
 
-  console.log(selectDetails["cpu"]);
-  useEffect(() => {});
-  // let result = cpuAmd.dataGpuAmd.filter((cpu) => {
-  //   if (cpu.name.includes(" AMD Ryzen 5 5600")) return cpu;
-  // });
+  let selectedCategory = useSelector(
+    (state) => state.toolkitS.selectedCategory
+  );
+
   const scrollToContent = (elementScroll) => {
     console.log(elementScroll);
     scroller.scrollTo(elementScroll, {
@@ -39,9 +42,14 @@ const FindDetail = () => {
       offset: -105,
     });
   };
+
   return (
     <div className="result-search">
       {expandedDiv.map((element, id) => {
+        if (element.name === selectedCategory) {
+          element.findDetail = selectDetails[selectedCategory]?.length;
+        }
+
         return (
           <div
             id={element.name}
@@ -60,18 +68,19 @@ const FindDetail = () => {
               <div className="find-icon-detail">
                 <img src={`../icons/iconsSections/${element.name}.png`} />
               </div>
+
               <div className="info-offers">
-                {selectDetails !== "undefined" && element.name === "cpu" ? (
+                {selectDetails !== "undefined" && element.findDetail > 0 ? (
                   <p style={{ textAlign: "justify", marginTop: "30px" }}>
-                    нашлось {selectDetails["cpu"]?.length} предложений в
-                    магазине{" "}
+                    нашлось {element.findDetail} предложений в магазине
                   </p>
                 ) : (
                   <p style={{ textAlign: "justify", marginTop: "30px" }}>
-                    здесь пока ничего нет{" "}
+                    {"здесь пока ничего нет"}
                   </p>
                 )}
               </div>
+
               <button
                 id={element.name}
                 className="find-btn-addElement"
@@ -88,21 +97,15 @@ const FindDetail = () => {
               </button>
             </div>
 
-            {/* {element.isShow && <PCListDetails categoryDetails={element.name} />} */}
+            {element.isShow && (
+              <ListFindDetails
+                selectDetails={selectDetails}
+                selectedCategory={selectedCategory}
+              />
+            )}
           </div>
         );
       })}
-      {/* {result.map((element) => {
-        return (
-          <>
-            <p>{element.name}</p>
-            <a href={element.link} target="_blank">
-              {element.link}
-            </a>
-            <p>{element.price}</p>
-          </>
-        );
-      })} */}
     </div>
   );
 };
